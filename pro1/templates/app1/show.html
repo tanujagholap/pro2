@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Title</title>
+{% endblock %}
+{% block content %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>ROLL </th>
+                <th>MARKS</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in form %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.f_name }}</td>
+                <td>{{ i.s_name }}</td>
+                <td>{{ i.roll }}</td>
+                <td>{{ i.marks }}</td>
+                <td>
+                    <a href="{% url 'update_url' i.id%}">
+                        <button>UPDATE</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_url' i.id%}">
+                        <button>DELETE</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

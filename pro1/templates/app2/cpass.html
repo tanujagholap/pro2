@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Title</title>
+{% endblock %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <label>OLD PASSWORD : </label>
+        <input type="password" name="old">
+        <br><br>
+        <label>NEW PASSWORD : </label>
+        <input type="password" name="new">
+        <br>
+        <input type="submit">
+    </form>
+{% endblock %}
